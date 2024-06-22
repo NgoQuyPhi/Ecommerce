@@ -1,0 +1,74 @@
+{{if .admin}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>admin</title>
+</head>
+<body>
+    <header>
+        {{template "navbar.html"}}
+    </header>
+    <a href="/addproduct">Add Product</a>
+
+    <h1>Products</h1>
+        <ul>
+            {{ range .products }}
+            <li>
+                <h2>{{ .Name }}</h2>
+                <p>{{ .Description }}</p>
+                <p>{{ .Stock_quantity}}</p>
+                <form action="/admin/edit/{{.ProductID}}" method="get">
+                    <button type="submit">Edit</button>
+                </form>
+            </li>
+            {{ end }}
+        </ul>
+    
+</body>
+</html>
+{{else}}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>E-commerce Website</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <header>
+        {{template "navbar.html"}}
+    </header>
+
+    <main>
+        <h1>Welcome to our E-commerce Website</h1>
+        <h2>Hello {{.name}}</h2>
+        <p>Browse our products and enjoy shopping!</p>
+        <h1>Products</h1>
+        <ul>
+            {{ range .products }}
+            <li>
+                <h2>{{ .Name }}</h2>
+                <p>Price: ${{ .Price }}</p>
+                <p>{{ .Description }}</p>
+                <p>{{ .Stock_quantity}}</p>
+                <form action="/api/cart/{{.ProductID}}" method="post">
+                    <button type="submit">Add to Cart</button>
+                </form>
+                <form action="/api/review/{{.ProductID}}" method="get">
+                    <button type="submit">Review</button>
+                </form>
+            </li>
+            {{ end }}
+        </ul>
+        {{template "checkout.html"}}
+    </main>
+
+    <footer>
+        &copy; E-commerce Website
+    </footer>
+
+    <script src="/static/js/main.js"></script>
+</body>
+</html>
+{{end}}

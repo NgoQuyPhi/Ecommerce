@@ -1,0 +1,7 @@
+<form action="/review/{{.productID}}" method="post">
+    <input type="hidden" name="user_id" value="{{.id}}">
+    <input type="hidden" name="product_id" value="{{.productID}}">
+    <input type="text" name="rating">
+    <input type="text" name="review_text">
+    <button type="submit">Write</button>
+</form>

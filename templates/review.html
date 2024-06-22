@@ -1,0 +1,17 @@
+<table>
+    <thead>
+        <tr>
+            <th>Rating</th>
+            <th>Review</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{ range .reviews }}
+        <tr>
+        <td>{{ .Rating}}</td>
+        <td>{{ .ReviewText}}</td>
+        </tr>
+        {{end}}
+    </tbody>
+</table>
+<a href="/api/createreview/{{.productID}}">Write Review</a>

@@ -1,0 +1,18 @@
+@host = localhost:8080
+
+// Access a Secured API Endpoint
+POST  http://{{host}}/login HTTP/1.1
+
+   { "password": "123465789",
+
+    "username":"ngoquyphi"}
+###
+
+PUT   http://{{host}}/admin/update/6 HTTP/1.1
+content-type: application/json
+
+{
+    "description":"Iphone11 128GB"
+}
+
+

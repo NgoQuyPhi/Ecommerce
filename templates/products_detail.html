@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ .Product.Name }}</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <header>
+        {{template "navbar.html"}}
+    </header>
+
+    <main>
+        <h1>{{ .Product.Name }}</h1>
+        <p>Price: ${{ .Product.Price }}</p>
+        <p>{{ .Product.Description }}</p>
+        <button>Add to Cart</button>
+    </main>
+
+    <footer>
+        &copy; E-commerce Website
+    </footer>
+
+    <script src="/static/js/main.js"></script>
+</body>
+</html>

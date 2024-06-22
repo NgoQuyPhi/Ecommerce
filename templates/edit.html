@@ -1,0 +1,27 @@
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>CategoryID</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <td>{{.product.Name}}</td>
+        <td>{{.product.Description}}</td>
+        <td>{{.product.Price}}</td>
+        <td>{{.product.CategoryID}}</td>
+        <td>
+            <form action="/admin/update/{{ .product.ProductID }}" method="get">
+                <button type="submit">Update</button>
+            </form>
+        </td>
+        <td>
+            <form action="/admin/remove/{{.product.ProductID }}" method="delete">
+                <button type="submit">Remove</button>
+            </form>
+        </td>
+    </tbody>
+</table>
